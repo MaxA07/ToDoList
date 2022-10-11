@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.APP
 import com.example.todolist.R
 import com.example.todolist.adapter.NoteAdapter
 import com.example.todolist.databinding.FragmentStartBinding
+import com.example.todolist.model.NoteModel
 
 class StartFragment : Fragment() {
 
@@ -31,18 +32,19 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        init()
+        initStartFragment()
     }
 
-    private fun init() {
+    private fun initStartFragment() {
         val viewModel = ViewModelProvider(this)[StartViewModel::class.java]
         viewModel.initDatabase()
         recyclerView = binding.rvNotes
         adapter = NoteAdapter()
         recyclerView.adapter = adapter
+
         viewModel.getAllNotes().observe(viewLifecycleOwner) { listNotes ->
-            listNotes.asReversed()
-            adapter.setList(listNotes)
+            //listNotes.asReversed()
+            adapter.setList(listNotes.asReversed())
         }
 
         binding.addButton.setOnClickListener {
@@ -51,9 +53,15 @@ class StartFragment : Fragment() {
 
     }
 
-//    companion object {
-//
-//        @JvmStatic
-//        fun newInstance() = StartFragment()
-//    }
+    companion object {
+
+        @JvmStatic
+        fun newInstance() = StartFragment()
+
+        fun clickNote(noteModel: NoteModel) {
+            val bundle = Bundle()
+            bundle.putSerializable("note", noteModel)
+            APP.navController.navigate(R.id.action_startFragment_to_detailsFragment, bundle)
+        }
+    }
 }
