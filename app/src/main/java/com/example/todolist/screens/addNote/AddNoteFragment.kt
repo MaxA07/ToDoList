@@ -19,9 +19,9 @@ class AddNoteFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_add_note, container, false)
     }
 
-    companion object {
-
-        @JvmStatic
-        fun newInstance() = AddNoteFragment()
-    }
+//    companion object {
+//
+//        @JvmStatic
+//        fun newInstance() = AddNoteFragment()
+//    }
 }

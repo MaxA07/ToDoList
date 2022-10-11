@@ -10,7 +10,7 @@ import com.example.todolist.model.NoteModel
 
 class StartViewModel(application: Application): AndroidViewModel(application) {
 
-    val context = application
+    private val context = application
 
     fun initDatabase() {
         val daoNote = NoteDataBase.getInstance(context).getNoteDao()

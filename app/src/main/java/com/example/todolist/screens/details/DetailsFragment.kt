@@ -19,9 +19,9 @@ class DetailsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_details, container, false)
     }
 
-    companion object {
-
-        @JvmStatic
-        fun newInstance() = DetailsFragment()
-    }
+//    companion object {
+//
+//        @JvmStatic
+//        fun newInstance() = DetailsFragment()
+//    }
 }
