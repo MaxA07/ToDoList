@@ -4,12 +4,11 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todolist.adapter.NoteAdapter.NoteViewHolder
 import com.example.todolist.databinding.ItemLayoutBinding
 import com.example.todolist.model.NoteModel
 import com.example.todolist.screens.start.StartFragment
 
-class NoteAdapter: RecyclerView.Adapter<NoteViewHolder>() {
+class NoteAdapter: RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
     private var listNote = emptyList<NoteModel>()
 
@@ -45,7 +44,7 @@ class NoteAdapter: RecyclerView.Adapter<NoteViewHolder>() {
     }
 
     override fun onViewDetachedFromWindow(holder: NoteViewHolder) {
-        //super.onViewDetachedFromWindow(holder)
+        super.onViewDetachedFromWindow(holder)
         holder.itemView.setOnClickListener(null)
     }
 }

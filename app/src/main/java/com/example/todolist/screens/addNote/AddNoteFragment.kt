@@ -36,10 +36,10 @@ class AddNoteFragment : Fragment() {
     private fun initAddNote() {
         val viewModel = ViewModelProvider(this).get(AddNoteViewModel::class.java)
         binding.addNoteButton.setOnClickListener {
-            val title = binding.editTextField.toString()
-            val description = binding.editTextDescription.toString()
+            val title = binding.editTextField
+            val description = binding.editTextDescription
 
-            viewModel.insert(NoteModel(title = title, description = description)) {}
+            viewModel.insert(NoteModel(title = title.text.toString(),description = description.text.toString())) {}
             APP.navController.navigate(R.id.action_addNoteFragment_to_startFragment)
         }
         binding.backButton.setOnClickListener {

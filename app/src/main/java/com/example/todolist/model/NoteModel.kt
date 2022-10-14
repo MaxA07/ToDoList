@@ -7,6 +7,7 @@ import java.io.Serializable
 
 @Entity(tableName = "note_table")
 data class NoteModel(
+
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
 
