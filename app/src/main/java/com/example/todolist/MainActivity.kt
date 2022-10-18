@@ -2,6 +2,7 @@ package com.example.todolist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.todolist.databinding.ActivityMainBinding
@@ -16,5 +17,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         APP = this
         navController = Navigation.findNavController(this, R.id.nav_fragment)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.getDefaultNightMode())
     }
 }
